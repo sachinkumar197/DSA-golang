@@ -14,8 +14,9 @@ func reverse(xs []int) []int {
 }
 
 func rotateArray(xs []int, d int) []int {
+	k := d % len(xs)
 	x := reverse(xs)
-	ind := len(xs) - d
+	ind := len(xs) - k
 	leftArray := reverse(x[:ind])
 	rightArray := reverse(x[ind:])
 	return append(leftArray, rightArray...)
@@ -23,5 +24,5 @@ func rotateArray(xs []int, d int) []int {
 
 func main() {
 	_list := []int{1, 2, 3, 4, 5, 6, 7}
-	fmt.Println(rotateArray(_list, 2))
+	fmt.Println(rotateArray(_list, 22))
 }
