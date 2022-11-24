@@ -9,12 +9,14 @@ import (
 
 func searchElem(xs []int, left int, right int, val int) string {
 	sort.Ints(xs)
-	if xs[left]+xs[right] == val {
+	if left >= right {
+		return "No"
+	} else if xs[left]+xs[right] == val {
 		return "Yes"
 	} else if xs[left]+xs[right] > val {
 		return searchElem(xs, left, right-1, val)
 	} else if xs[left]+xs[right] < val {
-		return searchElem(xs, left-1, right, val)
+		return searchElem(xs, left+1, right, val)
 	}
 	return "No"
 }
